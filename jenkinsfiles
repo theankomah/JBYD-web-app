@@ -15,7 +15,7 @@ stage("2. Building Artifact with Maven"){
 steps{
 sh "echo start building artifact with maven"
 sh "mvn clean package"
-sh "end of build"
+sh "echo end of build"
 }
 }
 stage("3. Code quality scan with SonarQube"){
