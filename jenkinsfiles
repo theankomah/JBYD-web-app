@@ -5,7 +5,6 @@ maven "maven 3.8.3"
 }
 stages{
 stage("1. Git clone repo from git"){
-agent { Label "alf-node" }
 steps{
 sh "echo start git cloning repo from git"
 git branch: 'main', credentialsId: 'git_cred', url: 'https://github.com/theankomah/JBYD-web-app.git'
@@ -13,7 +12,6 @@ sh "echo end of git cloning from git"
 }
 }
 stage("2. Building Artifact with Maven"){
-agent { Label "alf-node" }
 steps{
 sh "echo start building artifact with maven"
 sh "mvn clean package"
@@ -21,7 +19,6 @@ sh "end of build"
 }
 }
 stage("3. Code quality scan with SonarQube"){
-agent { Label "alf-node" }
 steps{
 sh "echo start of code quality scan"
 sh "mvn sonar:sonar"
