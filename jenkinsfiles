@@ -5,7 +5,7 @@ maven "maven 3.8.3"
 }
 stages{
 stage("1. Git clone repo from git"){
-agent { Label "alf-node"}
+agent { Label "alf-node" }
 steps{
 sh "echo start git cloning repo from git"
 git branch: 'main', credentialsId: 'git_cred', url: 'https://github.com/theankomah/JBYD-web-app.git'
